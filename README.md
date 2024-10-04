@@ -172,7 +172,7 @@ Note that the trace corresponds to 1000 packets, but the output of `irtt` over t
 For more details about the method, please refer to
 
 <blockquote>
-    W. Tian, Y. Li, J. Zhao, S. Wu and J. Pan, "An eBPF-Based Trace-Driven Emulation Method for Satellite Networks", IEEE Networking Letters, 2024, Accepted. (Preprint of the submitted: https://arxiv.org/abs/2408.15581)
+    W. Tian, Y. Li, J. Zhao, S. Wu and J. Pan, "An eBPF-Based Trace-Driven Emulation Method for Satellite Networks", IEEE Networking Letters, 2024, Accepted. (Early Access: https://ieeexplore.ieee.org/document/10702534)
 </blockquote>
 
 If you find the method useful, please kindly cite the paper in your related works.
