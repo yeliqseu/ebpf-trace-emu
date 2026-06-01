@@ -128,6 +128,21 @@ sudo python3 update_map_value.py --keyword loss_map_2 --file_path /YOUR_PATH_TO/
 
 **The map updating takes time.** For example, updating 10000 data points may take a few seconds.
 
+## Step 5: (Optional) Switch Emulation Mode for TCP testing
+
+By default, the eBPF programs run in **Packet-Driven Mode (Mode 0)**, where the trace index advances by 1 for every packet received. This is suitable for Constant Bit Rate (CBR) traffic like `irtt`. 
+
+However, if you want to test Variable Bit Rate (VBR) traffic or TCP throughput (e.g., using `iperf3`), the bursty nature of TCP will consume the trace too quickly. For such tests, you should switch to **Time-Driven Mode (Mode 1)**, where the trace index advances strictly based on the physical clock (`bpf_ktime_get_ns()`).
+
+To switch the mode, run the following script in the `ebpf-emu-in-mn` directory:
+
+```bash
+# Switch to Time-Driven Mode (for TCP / iperf3)
+sudo python3 set_mode.py --mode 1
+
+# Switch back to Packet-Driven Mode (for irtt)
+sudo python3 set_mode.py --mode 0
+```
 
 # Test the emulated link
 After the emulation environment is configured, you may run `irtt` in Mininet to verify the emulated link. In `h2`'s xterm, run
